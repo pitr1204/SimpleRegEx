@@ -1,0 +1,16 @@
+import re
+ 
+resRegex = re.compile(r'\d{10}')
+inputFile = open("inputReservations.txt", "r")
+reservations = inputFile.read()
+output = resRegex.findall(reservations)
+outputString = ""
+ 
+outputFile = open("outputReservations.txt", "w")
+ 
+for i in range(len(output)):
+    outputString = outputString + "'" + output[i] + "'," + "\n"
+ 
+outputFile.write(outputString)
+inputFile.close()
+outputFile.close()
